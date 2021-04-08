@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Quiz</title>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <h1>Create Quiz</h1>
+    <h3>Check an answer if it is the correct answer</h3>
+    <form action="new-quiz-handle.php"></form>
+        <label>Your name <input type="text"></label><br><br>
+        <div id="input-form"></div>
+            <button type="button" onclick="generateInputs(document.getElementById('input-form'))">New Question</button><br><br>       
+        <input type="submit" value="Finish">
+    </form>
+    <script>
+        var question_number = 0;
+        function generateInputs(form) {
+            var question = document.createElement('input');
+            question_number++;
+            question.type = "text";
+            question.placeholder = "Question Title";
+            question.setAttribute("id", question_number);
+            form.appendChild(question);
+
+            //option to delete the question
+            // var deleteQuestion = document.createElement('button');
+            // deleteQuestiontype="button";
+            // deleteQuestion.textContent = "Delete Question";
+            // deleteQuestion.onclick = deleteQuestionFunction();
+            // form.appendChild(deleteQuestion);
+            form.innerHTML += "<br>";
+
+            //generate four answer textboxes
+            for(var i = 1; i <= 4; i++){
+                var answer = document.createElement('input');
+                answer.type = "text";
+                answer.placeholder = "option " + i;
+                answer.setAttribute("id", "q" + question_number + "a" + i);
+                form.appendChild(answer);
+
+                //generate checkbox next to answer
+                var isAnswer = document.createElement('input');
+                isAnswer.type="checkbox";
+                isAnswer.setAttribute("id", "q" + question_number + "cb" + i);
+                form.appendChild(isAnswer);
+                form.innerHTML += "<br>";
+            }
+            form.innerHTML += "<br>";
+        }
+
+        //let's ignore the delete option until we get database stuff working
+        // function deleteQuestionFunction(){
+        //     alert();
+        // }
+    </script>
+</body>
+</html>
