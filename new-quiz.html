@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Quiz</title>
     <style>
-    
+
     </style>
 </head>
-<body>
+<body onload="generateInputs(document.getElementById('input-form'))">
     <h1>Create Quiz</h1>
     <h3>Check an answer if it is the correct answer</h3>
     <form action="new-quiz-handle.php"></form>
@@ -21,20 +21,21 @@
     <script>
         var question_number = 0;
         function generateInputs(form) {
+
+            var breaks = [];
+            for(var i = 0; i < 7; i++){
+                breaks[i] = document.createElement("br");
+            }
+            var spn = document.createElement("span");
+            form.appendChild(spn);
+
             var question = document.createElement('input');
             question_number++;
             question.type = "text";
             question.placeholder = "Question Title";
             question.setAttribute("id", question_number);
-            form.appendChild(question);
-
-            //option to delete the question
-            // var deleteQuestion = document.createElement('button');
-            // deleteQuestiontype="button";
-            // deleteQuestion.textContent = "Delete Question";
-            // deleteQuestion.onclick = deleteQuestionFunction();
-            // form.appendChild(deleteQuestion);
-            form.innerHTML += "<br>";
+            spn.appendChild(question);
+            spn.appendChild(breaks[0]);
 
             //generate four answer textboxes
             for(var i = 1; i <= 4; i++){
@@ -42,22 +43,17 @@
                 answer.type = "text";
                 answer.placeholder = "option " + i;
                 answer.setAttribute("id", "q" + question_number + "a" + i);
-                form.appendChild(answer);
+                spn.appendChild(answer);
 
                 //generate checkbox next to answer
                 var isAnswer = document.createElement('input');
                 isAnswer.type="checkbox";
-                isAnswer.setAttribute("id", "q" + question_number + "cb" + i);
-                form.appendChild(isAnswer);
-                form.innerHTML += "<br>";
+                isAnswer.setAttribute("id", "q" + question_number + "ch" + i);
+                spn.appendChild(isAnswer);
+                spn.appendChild(breaks[i]);
             }
-            form.innerHTML += "<br>";
+            spn.appendChild(breaks[i]);    
         }
-
-        //let's ignore the delete option until we get database stuff working
-        // function deleteQuestionFunction(){
-        //     alert();
-        // }
     </script>
 </body>
 </html>
