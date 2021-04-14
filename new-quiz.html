@@ -12,8 +12,8 @@
 <body onload="generateInputs(document.getElementById('input-form'))">
     <h1>Create Quiz</h1>
     <h3>Check an answer if it is the correct answer</h3>
-    <form action="new-quiz-handle.php"></form>
-        <label>Your name <input type="text"></label><br><br>
+    <form action="new-quiz-handle.php">
+        <label>Your name <input type="text" name="name"></label><br><br>
         <div id="input-form"></div>
             <button type="button" onclick="generateInputs(document.getElementById('input-form'))">New Question</button><br><br>       
         <input type="submit" value="Finish">
@@ -33,7 +33,7 @@
             question_number++;
             question.type = "text";
             question.placeholder = "Question Title";
-            question.setAttribute("id", question_number);
+            question.setAttribute("name", "qstn#" + question_number);
             spn.appendChild(question);
             spn.appendChild(breaks[0]);
 
@@ -42,13 +42,13 @@
                 var answer = document.createElement('input');
                 answer.type = "text";
                 answer.placeholder = "option " + i;
-                answer.setAttribute("id", "q" + question_number + "a" + i);
+                answer.setAttribute("name", "qstn#" + question_number + "ans" + i);
                 spn.appendChild(answer);
 
                 //generate checkbox next to answer
                 var isAnswer = document.createElement('input');
                 isAnswer.type="checkbox";
-                isAnswer.setAttribute("id", "q" + question_number + "ch" + i);
+                isAnswer.setAttribute("name", "qstn#" + question_number + "isCorrect");
                 spn.appendChild(isAnswer);
                 spn.appendChild(breaks[i]);
             }
