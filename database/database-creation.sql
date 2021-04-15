@@ -1,5 +1,11 @@
+drop table if exists High_Score;
+drop table if exists Answer;
+drop table if exists Question;
+drop table if exists Quiz;
+
 create table Quiz
 	(id					INT,
+	 quiz_creator		varchar(45),
 	 primary key (id)
 	);
 
@@ -33,11 +39,11 @@ create table High_Score
         on delete set null
 	);
 
-insert into Quiz values (1);
-insert into Quiz values (2);
+insert into Quiz values (1, 'Jenna');
+insert into Quiz values (2, 'Andrew');
 
-insert into High_Score values ('Bryce', 250, 1);
-insert into High_Score values ('Alex', 220, 2);
+insert into High_Score values ('Bryce', 0, 1);
+insert into High_Score values ('Alex', 3, 2);
 
 insert into Question values ('quiz1qstn1', 'Which of the following are true?', 1);
 insert into Question values ('quiz1qstn2', 'What is 0x10 in decimal?', 1);
