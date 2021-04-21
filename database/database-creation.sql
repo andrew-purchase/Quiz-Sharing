@@ -5,6 +5,7 @@ drop table if exists Quiz;
 
 create table Quiz
 	(id					INT,
+	 quiz_name			varchar(45),
 	 quiz_creator		varchar(45),
 	 primary key (id)
 	);
@@ -39,8 +40,8 @@ create table High_Score
         on delete set null
 	);
 
-insert into Quiz values (1, 'Jenna');
-insert into Quiz values (2, 'Andrew');
+insert into Quiz values (1, 'Math Trivia', 'Jenna');
+insert into Quiz values (2, 'Random Trivia', 'Andrew');
 
 insert into High_Score values ('Bryce', 0, 1);
 insert into High_Score values ('Alex', 3, 2);

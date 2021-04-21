@@ -13,8 +13,7 @@
     just a moment...
     <?php 
 
-    $conn = mysqli_connect("localhost:1000", "root", "root", "deleteThis") or die("Connection failed: " . mysqli_connect_error());
-
+$conn = mysqli_connect("localhost:3306", "root", "", "Quiz_Sharing") or die("Connection failed: " . mysqli_connect_error());
 //sql statement to find maximum quiz id in database, then +1 to create an unused quiz id
 $sql = "select id from Quiz order by id desc limit 1;";
 $result = $conn->query($sql);
