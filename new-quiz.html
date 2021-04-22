@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Quiz</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: Verdana, sans-serif;
+        }
+        button:hover, .submit:hover{
+            background-color: rgb(20, 84, 222);
+        }
+        button, .submit{
+            background-color: rgb(13, 126, 254); 
+            width: 250px;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body onload="generateInputs(document.getElementById('input-form'))">
+    <h1>Create Quiz</h1>
+    <h3>Check the box if it is the correct answer</h3>
+    <form action="new-quiz-handle.php">
+        <label>Quiz title <input type="text" name="title"></label><br>
+        <label>Your name <input type="text" name="name"></label><br><br>
+        <div id="input-form"></div>
+            <button type="button" onclick="generateInputs(document.getElementById('input-form'))">New Question</button><br><br>       
+        <input type="submit" class = submit value="Finish">
+    </form>
+    <script>
+        var question_number = 0;
+        function generateInputs(form) {
+
+            var breaks = [];
+            for(var i = 0; i < 7; i++){
+                breaks[i] = document.createElement("br");
+            }
+            var spn = document.createElement("span");
+            form.appendChild(spn);
+
+            var question = document.createElement('input');
+            question_number++;
+            question.type = "text";
+            question.placeholder = "Question Title";
+            question.setAttribute("name", "qstn#" + question_number);
+            spn.appendChild(question);
+            spn.appendChild(breaks[0]);
+
+            //generate four answer textboxes
+            for(var i = 1; i <= 4; i++){
+                var answer = document.createElement('input');
+                answer.type = "text";
+                answer.placeholder = "option " + i;
+                answer.setAttribute("name", "qstn#" + question_number + "ans" + i);
+                spn.appendChild(answer);
+
+                //generate checkbox next to answer
+                var isAnswer = document.createElement('input');
+                isAnswer.type="checkbox";
+                isAnswer.setAttribute("name", "qstn#" + question_number + "ans" + i + "cb");
+                spn.appendChild(isAnswer);
+                spn.appendChild(breaks[i]);
+            }
+            spn.appendChild(breaks[i]);    
+        }
+    </script>
+</body>
+</html>
