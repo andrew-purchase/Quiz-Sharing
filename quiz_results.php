@@ -5,28 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<style>
-        body{
-            text-align: center;
-            font-family: Verdana, sans-serif;
-        }
-        Button:hover{
-            background-color: rgb(20, 84, 222);
-        }
-        .submit{
-            background-color: rgb(13, 126, 254); 
-            width: 250px;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px; 
-            border-radius: 4px;
-        }
-</style>
 <body>
     <?php
         // var_dump($_REQUEST);

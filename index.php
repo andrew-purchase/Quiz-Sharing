@@ -6,6 +6,11 @@
     <title>Quiz Me</title>
 </head>
 <link rel="stylesheet" href="styles.css">
+<style>
+    .submit:hover{
+        background-color: rgb(20, 84, 222);
+    }
+</style>
 <body>
         <h1>Quiz Me</h1>
         <hr>

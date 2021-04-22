@@ -12,16 +12,16 @@ hr{
     width: 500px;
     height: 3px;
     background-color: black;
-    /* border-radius: 10px 10px 10px 10px; */
+    border-radius: 10px 10px 10px 10px;
 }
 body{
     text-align: center;
     font-family: Verdana, sans-serif;
 }
-button,.submit{
+button, .submit{
+    background-color: rgb(13, 126, 254); 
     width: 250px;
     border: none;
-    color: white;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -46,3 +46,9 @@ a{
 a:hover, button:hover, .submit:hover {
     background-color: rgb(20, 84, 222);
 }
+.input1{
+    padding-left: 50px;  
+}
+p{
+    font-weight: bold;
+} 

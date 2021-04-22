@@ -1,18 +1,6 @@
 <html>
+<link rel="stylesheet" href="styles.css">
     <style>
-        body{
-            padding-left: 10px;
-            font-family: Verdana, sans-serif;
-        }
-        h2{
-            padding-top: 18px;
-        }
-        hr{
-            width: 300px;
-            margin-left: 0px;
-            height: 3px;
-            background-color: black;
-        }
         .submit:hover{
             background-color: rgb(20, 84, 222);
         }
@@ -27,9 +15,6 @@
             display: inline-block;
             font-size: 16px; 
             border-radius: 4px;
-        }
-        .input1{
-          padding-left: 50px;  
         }
         p{
             font-weight: bold;
